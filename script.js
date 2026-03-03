@@ -76,3 +76,18 @@ async function generateImage() {
   link.href = cropped.toDataURL();
   link.click();
 }
+let selectionMode = false;
+
+function toggleSelectMode() {
+  selectionMode = !selectionMode;
+
+  const iframe = document.getElementById("sheetFrame");
+
+  if (selectionMode) {
+    iframe.style.pointerEvents = "none";
+    document.getElementById("selectBtn").innerText = "Disable Selection Mode";
+  } else {
+    iframe.style.pointerEvents = "auto";
+    document.getElementById("selectBtn").innerText = "Enable Selection Mode";
+  }
+}
